@@ -12,5 +12,4 @@ Erstellt werden soll eine einfache Anwendung mit den Möglichkeiten einer rudime
 - Möglichkeit des Vergleichs zwischen zwei Dateien (z.B. zwei verschiedenen Versionen)
 - Zentrales Repository
 
-Anwendung in Java erstellen (ggf. mit Weboberfläche)
-Alle Techniken aus der Vorlesung sollen angewandt werden.
+Anwendung in Java erstellen (ggf. mit Weboberfläche) und alle Techniken aus der Vorlesung sollen angewandt werden.
