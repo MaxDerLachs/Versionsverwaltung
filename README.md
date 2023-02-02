@@ -34,12 +34,14 @@ Anwendung in Java erstellen (ggf. mit Weboberfläche) und alle Techniken aus der
 ### JSON/BSON Objekt für MongoDB
 
 main object
-- repositoryVersion
+- "repositoryVersion"
 - files ARRAY
   - "ID"
   - "Name"
   - "Text"
 - folders ARRAY
+  - "ID"
+  - "Name"
   - files ARRAY
   - folders ARRAY
 
