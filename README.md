@@ -22,8 +22,27 @@ Anwendung in Java erstellen (ggf. mit Weboberfläche) und alle Techniken aus der
 
 ## Technischer Aufbau
 
+- Frontend: Angular
+- Backend: Java mit Spring Boot
+- Apache Tomcat Webserver
+- Datenbank: MongoDB Atlas
+
 ![image](https://user-images.githubusercontent.com/84570313/216387493-9aca8466-21ad-484b-8965-182bc5085406.png)
 
-## Datenbank
+## Datenbankstruktur
 
-MongoDB
+### JSON/BSON Objekt für MongoDB
+
+main object
+- repositoryVersion
+- files ARRAY
+  - "ID"
+  - "Name"
+  - "Text"
+- folders ARRAY
+  - files ARRAY
+  - folders ARRAY
+
+![image](https://user-images.githubusercontent.com/84570313/216389601-63d740b8-aa4c-4375-b1d6-0f82b6b1e09d.png)
+
+
