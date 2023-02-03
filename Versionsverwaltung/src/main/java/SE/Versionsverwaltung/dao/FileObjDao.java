@@ -66,7 +66,7 @@ public interface FileObjDao {
                 .append("fileID", fileObj.getFileID())
                 .append("fileName", fileObj.getFileName())
                 .append("fileText", fileObj.getFileText())
-                .append("fileVersion", fileObj.getFileParent())
+                .append("fileVersion", fileObj.getFileVersion())
                 .append("fileParent", fileObj.getFileParent())
                 .append("fileEditor", fileObj.getFileEditor())
                 .append("fileBlocked", false);
