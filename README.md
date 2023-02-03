@@ -47,4 +47,38 @@ main object
 
 ![image](https://user-images.githubusercontent.com/84570313/216389601-63d740b8-aa4c-4375-b1d6-0f82b6b1e09d.png)
 
+### Update - Überarbeitung Datenbankstruktur
 
+FileObj
+- fileID
+- fileName
+- fileText
+- fileVersion
+- fileParent
+- fileEditor
+- fileBlocked
+
+FileObj.java class im Backend:
+
+![image](https://user-images.githubusercontent.com/84570313/216528719-4fba0ac2-65fd-419f-a957-86beffb9f5ca.png)
+
+MongoDB document:
+
+![image](https://user-images.githubusercontent.com/84570313/216528440-bacf2391-8864-4e1a-b11c-4c51fca4b3cd.png)
+
+### Implementierung Database Access Layer
+
+Methoden:
+- getFileObjByID
+  - Input: fileID
+  - Output: FileObj
+- getFileObjByNameAndVersion
+  - Input: fileName, fileVersion (optional)
+  - Output: FileObj (latest)
+- insertDocument
+  - Input: FileObj
+  - Output: Boolean
+- generateDocument (FileObj to Document mapping/conversion)
+- generateFileObj (Document to FileObj mapping/conversion)
+
+Methoden-Testfälle in TestFileObjDao.java
