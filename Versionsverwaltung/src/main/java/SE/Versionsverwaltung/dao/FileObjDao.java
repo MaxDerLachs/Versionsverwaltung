@@ -3,7 +3,9 @@ package SE.Versionsverwaltung.dao;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import SE.Versionsverwaltung.model.FileObj;
+import com.mongodb.MongoException;
 import com.mongodb.client.*;
+import com.mongodb.client.result.InsertOneResult;
 import org.bson.Document;
 
 public interface FileObjDao {
@@ -39,6 +41,35 @@ public interface FileObjDao {
                 return null;
             }
         }
+    }
+
+    static Boolean insertDocument(FileObj fileObj){
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("files_db");
+            MongoCollection<Document> collection = database.getCollection("files_collection");
+
+            Document doc = generateDocument(fileObj);
+            try{
+                InsertOneResult result = collection.insertOne(doc);
+                System.out.println("Inserted document: " + result.getInsertedId());
+                return true;
+            } catch (MongoException me) {
+                System.err.println("Unable to insert document: " + me);
+                return false;
+            }
+        }
+    }
+
+    static Document generateDocument(FileObj fileObj){
+        return new Document()
+                .append("fileID", fileObj.getFileID())
+                .append("fileName", fileObj.getFileName())
+                .append("fileText", fileObj.getFileText())
+                .append("fileVersion", fileObj.getFileParent())
+                .append("fileParent", fileObj.getFileParent())
+                .append("fileEditor", fileObj.getFileEditor())
+                .append("fileBlocked", false);
     }
 
     static FileObj generateFileObj(Document doc){
