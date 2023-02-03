@@ -65,3 +65,20 @@ FileObj.java class im Backend:
 MongoDB document:
 
 ![image](https://user-images.githubusercontent.com/84570313/216528440-bacf2391-8864-4e1a-b11c-4c51fca4b3cd.png)
+
+### Implementierung Database Access Layer
+
+Methoden:
+- getFileObjByID
+  - Input: fileID
+  - Output: FileObj
+- getFileObjByNameAndVersion
+  - Input: fileName, fileVersion (optional)
+  - Output: FileObj (latest)
+- insertDocument
+  - Input: FileObj
+  - Output: Boolean
+- generateDocument (FileObj to Document mapping/conversion)
+- generateFileObj (Document to FileObj mapping/conversion)
+
+Methoden-Testfälle in TestFileObjDao.java
