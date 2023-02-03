@@ -60,7 +60,7 @@ FileObj
 
 FileObj.java class im Backend:
 
-![image](https://user-images.githubusercontent.com/84570313/216528190-ee57a7c0-eb37-4b97-b4a1-79e564ff2f4e.png)
+![image](https://user-images.githubusercontent.com/84570313/216528719-4fba0ac2-65fd-419f-a957-86beffb9f5ca.png)
 
 MongoDB document:
 
