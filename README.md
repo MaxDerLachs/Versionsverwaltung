@@ -47,4 +47,21 @@ main object
 
 ![image](https://user-images.githubusercontent.com/84570313/216389601-63d740b8-aa4c-4375-b1d6-0f82b6b1e09d.png)
 
+### Update - Überarbeitung Datenbankstruktur
 
+FileObj
+- fileID
+- fileName
+- fileText
+- fileVersion
+- fileParent
+- fileEditor
+- fileBlocked
+
+FileObj.java class im Backend:
+
+![image](https://user-images.githubusercontent.com/84570313/216528190-ee57a7c0-eb37-4b97-b4a1-79e564ff2f4e.png)
+
+MongoDB document:
+
+![image](https://user-images.githubusercontent.com/84570313/216528440-bacf2391-8864-4e1a-b11c-4c51fca4b3cd.png)
