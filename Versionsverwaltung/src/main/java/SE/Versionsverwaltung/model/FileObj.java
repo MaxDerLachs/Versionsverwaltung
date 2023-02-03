@@ -1,7 +1,5 @@
 package SE.Versionsverwaltung.model;
-
 public class FileObj {
-
     private final String fileID;
     private final String fileName;
     private final String fileText;
@@ -9,7 +7,6 @@ public class FileObj {
     private final String fileParent;
     private final String fileEditor;
     private Boolean fileBlocked;
-
     public FileObj(String fileID, String fileName, String fileText, String fileVersion, String fileParent, String fileEditor, Boolean fileBlocked){
         this.fileID = fileID;
         this.fileName = fileName;
@@ -19,7 +16,6 @@ public class FileObj {
         this.fileEditor = fileEditor;
         this.fileBlocked = fileBlocked;
     }
-
     public String getFileID(){return fileID;}
     public String getFileName(){return fileName;}
     public String getFileText() {return fileText;}
