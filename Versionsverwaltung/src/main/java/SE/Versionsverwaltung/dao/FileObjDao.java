@@ -8,6 +8,10 @@ import com.mongodb.client.*;
 import com.mongodb.client.result.InsertOneResult;
 import org.bson.Document;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public interface FileObjDao {
     String uri = "mongodb+srv://maxikami:dVmonsq4559iB5JL@cluster1.eot2cys.mongodb.net/?retryWrites=true&w=majority";
 
@@ -81,5 +85,33 @@ public interface FileObjDao {
                 doc.getString("fileParent"),
                 doc.getString("fileEditor"),
                 doc.getBoolean("fileBlocked"));
+    }
+
+    static String getLatestVersion(String fileName){
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("files_db");
+            MongoCollection<Document> collection = database.getCollection("files_collection");
+
+            Iterable<Document> docs = collection.find(eq("fileName", fileName));
+            if(docs != null){
+                ArrayList<String> versions = new ArrayList<String>();
+                for(Document doc: docs){
+                    Pattern pattern = Pattern.compile("[0-9]+\u002E[0-9]+\u002E[0-9]+");
+                    Matcher matcher = pattern.matcher(doc.getString("fileVersion"));
+                    boolean matchFound = matcher.find();
+                    if(matchFound){versions.add(doc.getString("fileVersion"));}
+                }
+                if(versions != null){
+                    return "...";
+                } else {
+                    System.out.println("No matching documents found.");
+                    return null;
+                }
+            } else {
+                System.out.println("No matching documents found.");
+                return null;
+            }
+        }
     }
 }
